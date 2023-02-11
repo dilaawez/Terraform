@@ -31,3 +31,29 @@ output "aws_route_table" {
   }
 
 }
+
+output "aws_security_group" {
+  value   = {
+    "name" = aws_security_group.mtc_sg.name
+    "ingress" = aws_security_group.mtc_sg.ingress
+
+
+}
+}
+
+output "aws_instance" {
+ 
+  value = {
+    "public_ip" = aws_instance.dev_node.public_ip
+    "ami"  = aws_instance.dev_node.ami
+    "key"  = aws_key_pair.mtckey_auth.public_key
+}
+}
+
+output "aws_s3_bucket" {
+  value = {
+    "bucket" = aws_s3_bucket.terraform_backend.bucket
+    # "key" = aws_s3_bucket.terraform_backend.key
+
+}
+}
